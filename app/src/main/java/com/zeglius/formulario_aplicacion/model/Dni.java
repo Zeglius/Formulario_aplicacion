@@ -1,6 +1,8 @@
 package com.zeglius.formulario_aplicacion.model;
 
-public class Dni {
+import java.io.Serializable;
+
+public class Dni implements Serializable {
     //<editor-fold desc="En constructor">
     private String apellido;
     private String apellido2;
@@ -13,6 +15,14 @@ public class Dni {
     private String validoFech;
     private String numDni;
     //</editor-fold>
+
+    public Dni(String apellido, String apellido2, String nombre, String sexo, String fechaNaci) {
+        this.apellido = apellido;
+        this.apellido2 = apellido2;
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.fechaNaci = fechaNaci;
+    }
 
 
     public String getValidoFech() {
