@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Formulario_aplicacion</string>
+    <string name="introducir_datos_dni">Introducir datos DNI</string>
+    <string name="apellido">Apellido</string>
+    <string name="apellido2">Apellido2</string>
+    <string name="nombre">Nombre</string>
+    <string name="sexo">Sexo</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="crear_dni">Crear DNI</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
