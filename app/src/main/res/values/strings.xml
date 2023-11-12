@@ -13,5 +13,6 @@
     <string name="valido_hasta">Valido hasta</string>
     <string name="otros_posibles_dnis">Otros posibles DNIs</string>
     <string name="dni_generado">DNI generado:</string>
+    <string name="fecha_nacimiento">Fecha Nacimiento</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

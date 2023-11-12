@@ -125,7 +125,7 @@
             app:layout_constraintTop_toBottomOf="@+id/sexoRadioGroup"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            android:hint="Fecha Nacimiento"
+            android:hint="@string/fecha_nacimiento"
             android:focusable="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

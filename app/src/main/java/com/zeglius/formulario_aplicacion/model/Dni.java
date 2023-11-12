@@ -53,6 +53,20 @@ public class Dni implements Serializable {
         return String.join("", Utils.randomChoice(Utils.abcStrings(), 8));
     }
 
+    @Override
+    public String toString() {
+        return "Dni{" +
+                "apellido='" + apellido + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", fechaNaci='" + fechaNaci + '\'' +
+                ", validoFech='" + validoFech + '\'' +
+                ", desp='" + desp + '\'' +
+                ", dniNumero='" + dniNumero + '\'' +
+                '}';
+    }
+
     public String getValidoFech() {
         return validoFech;
     }

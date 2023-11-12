@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zeglius.formulario_aplicacion.MainActivity;
@@ -35,10 +36,8 @@ public class DNI_mostrar extends AppCompatActivity {
 
         Intent intent = getIntent();
         Dni dni;
-        Bundle extras;
-        extras = intent.getBundleExtra(MainActivity.EXTRA_DNI);
-        dni = extras != null ? (Dni) extras.getSerializable(MainActivity.EXTRA_DNI) : null;
-        Log.d(TAG, "onCreate: " + "dni == null = " + (dni == null));
+        dni = (Dni) intent.getSerializableExtra(MainActivity.EXTRA_DNI);
+        Log.d(TAG, "onCreate: " + "dni: " + dni);
 
 
         if (dni != null) {
@@ -52,12 +51,16 @@ public class DNI_mostrar extends AppCompatActivity {
             ((TextView) findViewById(R.id.dniValidoFechTextView)).setText(getString(R.string.valido_hasta) + ": " + dni.getValidoFech());
 
             List<Dni> dniList = new ArrayList<>();
-            dniList.add(new Dni(dni));
-            dniList.add(new Dni(dni));
-            dniList.add(new Dni(dni));
-            DniAdapter dniAdapter = new DniAdapter(dniList);
+            for (int i = 0; i < 3; i++) {
+                Dni d = new Dni(dni);
+                d.setDesp(Dni.randomDniDesp());
+                d.setDniNumero(Dni.randomDniNumber());
+                dniList.add(d);
+            }
+            DniAdapter dniAdapter = new DniAdapter(this, dniList);
 
             recyclerView = findViewById(R.id.dnisRecycleView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(dniAdapter);
         }
     }

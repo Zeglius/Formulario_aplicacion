@@ -1,5 +1,6 @@
 package com.zeglius.formulario_aplicacion;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @noinspection unused
      */
-    private static final String TAG = MainActivity.class.getName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     //<editor-fold desc="Views">
     private EditText apellidoEditText;
@@ -65,13 +66,15 @@ public class MainActivity extends AppCompatActivity {
             Dni dni = buildDni();
             if (dni == null) return;
 
-            Intent intent = new Intent(this, DNI_mostrar.class);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(MainActivity.EXTRA_DNI, dni);
-            intent.putExtra(MainActivity.EXTRA_DNI, bundle);
-
-            startActivity(intent);
+            startDniMostrarActivity(this, dni);
         });
+    }
+
+    public static void startDniMostrarActivity(Context context, Dni dni) {
+        Intent intent = new Intent(context, DNI_mostrar.class);
+        intent.putExtra(MainActivity.EXTRA_DNI, dni);
+
+        context.startActivity(intent);
     }
 
 
