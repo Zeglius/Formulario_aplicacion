@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="introducir_datos_dni">Introduce DNI fields</string>
+    <string name="apellido">Surname</string>
+    <string name="apellido2">Second surname</string>
+    <string name="nombre">Name</string>
+    <string name="sexo">Gender</string>
+    <string name="hombre">Male</string>
+    <string name="mujer">Female</string>
+    <string name="crear_dni">Create DNI</string>
+</resources>
