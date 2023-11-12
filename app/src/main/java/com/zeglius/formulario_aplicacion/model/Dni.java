@@ -4,7 +4,9 @@ import com.zeglius.formulario_aplicacion.utils.Utils;
 
 import java.io.Serializable;
 
-/** @noinspection unused*/
+/**
+ * @noinspection unused
+ */
 public class Dni implements Serializable {
     //<editor-fold desc="En constructor">
     private String apellido;
@@ -34,6 +36,26 @@ public class Dni implements Serializable {
         Utils.repeat(8, (i) -> this.dniNumero += Utils.randomChoice(Utils.abcStrings()).get(0));
     }
 
+    public Dni(Dni dni) {
+        this(dni, false);
+    }
+
+    public Dni(Dni dni, boolean isRandom) {
+        this.apellido = dni.apellido;
+        this.apellido2 = dni.apellido2;
+        this.nombre = dni.nombre;
+        this.sexo = dni.sexo;
+        this.fechaNaci = dni.fechaNaci;
+
+        if (isRandom) {
+            this.desp = String.join("", Utils.randomChoice(Utils.abcStrings(), 8));
+            this.dniNumero = "";
+            Utils.repeat(8, (i) -> this.dniNumero += Utils.randomChoice(Utils.abcStrings()).get(0));
+        } else {
+            this.desp = dni.desp;
+            this.dniNumero = dni.numDni;
+        }
+    }
 
     public String getValidoFech() {
         return validoFech;
