@@ -18,7 +18,6 @@ public class Dni implements Serializable {
 
     //<editor-fold desc="Generados en runtime">
     private String validoFech;
-    private String numDni;
     private String desp;
     private String dniNumero;
     //</editor-fold>
@@ -29,32 +28,29 @@ public class Dni implements Serializable {
         this.nombre = nombre;
         this.sexo = sexo;
         this.fechaNaci = fechaNaci;
-
-        // Generados en runtime
-        this.desp = String.join("", Utils.randomChoice(Utils.abcStrings(), 8));
-        this.dniNumero = "";
-        Utils.repeat(8, (i) -> this.dniNumero += Utils.randomChoice(Utils.abcStrings()).get(0));
+        this.dniNumero = randomDniNumber();
+        this.desp = randomDniDesp();
+        this.validoFech = fechaNaci;
     }
+
 
     public Dni(Dni dni) {
-        this(dni, false);
-    }
-
-    public Dni(Dni dni, boolean isRandom) {
         this.apellido = dni.apellido;
         this.apellido2 = dni.apellido2;
         this.nombre = dni.nombre;
         this.sexo = dni.sexo;
         this.fechaNaci = dni.fechaNaci;
+        this.dniNumero = randomDniNumber();
+        this.desp = randomDniDesp();
+        this.validoFech = dni.validoFech;
+    }
 
-        if (isRandom) {
-            this.desp = String.join("", Utils.randomChoice(Utils.abcStrings(), 8));
-            this.dniNumero = "";
-            Utils.repeat(8, (i) -> this.dniNumero += Utils.randomChoice(Utils.abcStrings()).get(0));
-        } else {
-            this.desp = dni.desp;
-            this.dniNumero = dni.numDni;
-        }
+    public static String randomDniNumber() {
+        return String.join("", Utils.randomChoice(Utils.abcStrings(), 8));
+    }
+
+    public static String randomDniDesp() {
+        return String.join("", Utils.randomChoice(Utils.abcStrings(), 8));
     }
 
     public String getValidoFech() {
@@ -69,12 +65,12 @@ public class Dni implements Serializable {
         this.validoFech = validoFech;
     }
 
-    public String getNumDni() {
-        return numDni;
+    public String getDniNumero() {
+        return dniNumero;
     }
 
-    public void setNumDni(String numDni) {
-        this.numDni = numDni;
+    public void setDniNumero(String dniNumero) {
+        this.dniNumero = dniNumero;
     }
 
     public String getApellido() {
