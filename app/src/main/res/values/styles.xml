@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="StyledComponent">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">17dp</item>
         <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="dniFieldStyle">
+        <item name="android:focusable">false</item>
+        <item name="android:textSize" tools:ignore="SpUsage">10dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
