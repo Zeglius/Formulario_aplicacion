@@ -11,8 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.IntStream;
 
 public final class Utils {
     private Utils() {
@@ -116,5 +119,58 @@ public final class Utils {
         );
 
         clickedViewTrigger.setOnClickListener(v -> timePickerDialog.show());
+    }
+
+    public static ArrayList<Character> abcChars() {
+        ArrayList<Character> list = new ArrayList<>();
+
+        // Populate list
+        for (int i = 65; i <= 90; i++) {
+            list.add((char) i);
+        }
+        return list;
+    }
+
+    /**
+     * @noinspection unused
+     */
+    public static ArrayList<String> abcStrings() {
+        ArrayList<String> list = new ArrayList<>();
+
+        // Populate list
+        for (int i = 65; i <= 90; i++) {
+            list.add(String.valueOf((char) i));
+        }
+        return list;
+    }
+
+    /**
+     * Return a random selection of elements from a list.
+     *
+     * @param list List from which we pick the elements
+     * @noinspection unused
+     */
+    public static <T> List<T> randomChoice(List<T> list) {
+        return randomChoice(list, list.size());
+    }
+
+    /**
+     * Return a random selection of elements from a list.
+     *
+     * @param list List from which we pick the elements
+     * @param size Size of the selection.
+     * @noinspection unused
+     */
+    public static <T> List<T> randomChoice(List<T> list, int size) {
+        List<T> res = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            int idx = (int) (Math.random() * 10 % list.size());
+            res.add(list.get(idx));
+        }
+        return res;
+    }
+
+    public static void repeat(int number, Consumer<Integer> action) {
+        IntStream.range(0, number).forEach(action::accept);
     }
 }
