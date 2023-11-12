@@ -59,7 +59,10 @@ public final class Utils {
      * @param dateFormat         Date pattern passed to
      *                           {@link SimpleDateFormat#applyPattern(String)}
      */
-    public static void setupDatePicker(Context context, View clickedViewTrigger, TextView textViewReceiver, String dateFormat) {
+    public static void setupDatePicker(Context context,
+                                       View clickedViewTrigger,
+                                       TextView textViewReceiver,
+                                       String dateFormat) {
         final Calendar myCalendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, dayOfMonth) -> {
             myCalendar.set(Calendar.YEAR, year);
