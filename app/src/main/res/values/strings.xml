@@ -8,5 +8,10 @@
     <string name="hombre">Hombre</string>
     <string name="mujer">Mujer</string>
     <string name="crear_dni">Crear DNI</string>
+    <string name="desp" translatable="false">Desp</string>
+    <string name="numero_dni">Numero DNI</string>
+    <string name="valido_hasta">Valido hasta</string>
+    <string name="otros_posibles_dnis">Otros posibles DNIs</string>
+    <string name="dni_generado">DNI generado:</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

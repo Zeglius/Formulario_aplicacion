@@ -8,4 +8,8 @@
     <string name="hombre">Male</string>
     <string name="mujer">Female</string>
     <string name="crear_dni">Create DNI</string>
+    <string name="numero_dni">DNI Number</string>
+    <string name="valido_hasta">Valid until</string>
+    <string name="otros_posibles_dnis">Other possible DNIs</string>
+    <string name="dni_generado">Generated DNI:</string>
 </resources>
