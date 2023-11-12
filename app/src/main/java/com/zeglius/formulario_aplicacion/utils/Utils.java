@@ -2,6 +2,7 @@ package com.zeglius.formulario_aplicacion.utils;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -77,5 +78,40 @@ public final class Utils {
         );
 
         clickedViewTrigger.setOnClickListener(v -> datePickerDialog.show());
+    }
+
+    /**
+     * Generate a {@link TimePickerDialog} and bind it to a trigger a receiver
+     *
+     * @param context            Context of the activity
+     * @param clickedViewTrigger View that, when clicked, will open the date picker
+     * @param textViewReceiver   {@link TextView} that will receive the date text
+     * @param timeFormat         Time pattern passed to
+     *                           {@link SimpleDateFormat#applyPattern(String)}
+     * @param is24HourView       Is 24 hour view
+     * @noinspection unused
+     */
+    public static void setupTimePicker(Context context,
+                                       View clickedViewTrigger,
+                                       TextView textViewReceiver,
+                                       String timeFormat,
+                                       boolean is24HourView) {
+        final Calendar myCalendar = Calendar.getInstance();
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = (view, hourOfDay, minute) -> {
+            myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            myCalendar.set(Calendar.MINUTE, minute);
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat sd = new SimpleDateFormat();
+            sd.applyPattern(timeFormat);
+            textViewReceiver.setText(sd.format(myCalendar.getTime()));
+        };
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(context,
+                onTimeSetListener,
+                myCalendar.get(Calendar.HOUR_OF_DAY),
+                myCalendar.get(Calendar.MINUTE),
+                is24HourView
+        );
+
+        clickedViewTrigger.setOnClickListener(v -> timePickerDialog.show());
     }
 }
